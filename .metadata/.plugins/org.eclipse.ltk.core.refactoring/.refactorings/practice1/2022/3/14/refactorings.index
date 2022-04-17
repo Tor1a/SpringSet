@@ -1,0 +1,36 @@
+1648608165896	Rename type 'RootAppConfig'
+1648613939614	Rename resource 'pratice1Mapper.xml'
+1648617933315	Delete element
+1648623748845	Rename resource 'mybtais-config.xml'
+1648625088527	Delete element
+1648625092285	Delete element
+1648625203054	Rename package 'com.practice1.controller'
+1648625213811	Rename package 'com.model.membeer'
+1648626086395	Delete element
+1648626088019	Delete element
+1648628444838	Rename type 'MemberDao'
+1648629537884	Delete element
+1648629538920	Delete element
+1648629541099	Delete element
+1648630391298	Delete element
+1648630416859	Delete element
+1648630421156	Delete element
+1648630814267	Rename resource 'member_tbl_02Mapper.xml'
+1648687768790	Delete element
+1648688617819	Copy package
+1648688623970	Delete element
+1648688787558	Delete element
+1648689327109	Delete element
+1648689618691	Rename type 'member'
+1648699810057	Delete element
+1648699977952	Delete element
+1648700007341	Rename package 'com.practice1.mj.controller'
+1648700011245	Delete element
+1648700015316	Delete element
+1648700018356	Delete element
+1648700020218	Delete element
+1648700477725	Delete element
+1648704254795	Rename package 'com.practice1.mj'
+1648704690125	Move file
+1648704798291	Delete element
+1648708905029	Move file

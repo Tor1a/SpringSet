@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+body, h1, h2, h3, h4, h5, p, ul, li, ol, dd, dt, dl { padding: 0; margin: 0; }
+
+ul {list-style: none;}
+
+a:hover{text-decoration: none;}
+
+body{width: auto; hight: auto;}
+
+#wrapper {   border: 1px solid balck; padding: 10px 10px 10px 10px; }
+
+#content {display:flex; flex-direction: column; justify-content: center; border: 1px solid black;}
+
+#add {display: inline-block; padding:  15px 15px; width: 50px; hight: 50px;}
+
+.liTb {margin: auto; border-collapse: collapse; border: 1px solid black; width: 80%;}
+
+.title{display:flex;  flex-direction:row; justify-content:center;  text-align: center; border: 1px solid black; margin-bottom: 5px;}
+.total {text-align: center;}
+
+
+th {text-align: center; border: 1px solid black; background-color: yellow;}
+td {text-align: center; border: 1px solid black;} 

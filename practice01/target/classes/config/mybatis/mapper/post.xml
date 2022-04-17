@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="post">
+	
+	<insert id="insertPost" parameterType="PostVO">
+		INSERT INTO board_tbl (writer,subject,content,date)
+		VALUES (#{writer},#{subject},#{content},#{date})
+	</insert>
+	
+	<select id="listPost" resultType="PostVO">
+		SELECT * from board_tbl
+	</select>
+	
+	<select id="LookupPost" resultType="PostVO">
+		SELECT * FROM board_tbl WHERE idx = #{idx}
+	</select>
+
+	<select id="selectIdx" parameterType="Integer" resultType="PostVO">
+	    SELECT * FROM board_tbl WHERE idx = #{idx} 
+	</select>
+	
+	<update id="updatePost" parameterType="PostVO">
+		UPDATE board_tbl SET writer = #{writer}, subject = #{subject}, content = #{content}
+		WHERE idx = #{idx}
+	</update>
+	
+	<delete id="deletePost" parameterType="Integer">
+		DELETE FROM board_tbl WHERE idx = #{idx}
+	</delete>
+	
+	<delete id="deleteAllCmt" parameterType="Integer">
+		DELETE FROM comment_tbl WHERE bidx = #{idx}
+	</delete>
+	
+	<select id="totalPost" resultType="Integer">
+		SELECT COUNT(*) from board_tbl
+	</select>
+	
+	<!-- comment -->
+	<insert id="insertComment" parameterType="CommentVO">
+		INSERT INTO comment_tbl
+		VALUES (#{idx},#{bidx},#{writer},#{content},#{date})
+	</insert>
+	
+	<select id="commentList" parameterType="Integer" resultType="CommentVO">
+		SELECT * FROM comment_tbl WHERE bidx = #{bidx}
+	</select>
+	
+	<delete id="deleteComment" parameterType="Integer">
+		DELETE FROM comment_tbl WHERE idx = #{idx}			
+	</delete>
+</mapper>

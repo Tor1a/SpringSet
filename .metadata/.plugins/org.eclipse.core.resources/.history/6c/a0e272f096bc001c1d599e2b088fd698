@@ -1,0 +1,23 @@
+function addCheck(){
+	if($("#cmWriter").val() == ""){
+		alert("작성자를 입력해주세요");
+		$("#cmWriter").focus();
+		return;
+	}else if($("#cmContent").val() == ""){
+		alert("내용을 입력해주세요");
+		$("#cmContent").focus();
+		return;
+	}else{
+		var form = document.getElementById('commentAddForm');
+		form.action="CommentAdd.do";
+		form.method = "POST";
+		form.submit();
+	}
+}
+
+var idx = getParmeter("idx");
+
+function update(){
+	var idx = document.getElementById('vo.idx');
+	location.href = "updatForm.do?idx="+idx;
+}

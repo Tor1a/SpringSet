@@ -1,0 +1,18 @@
+function addCheck(){
+	if($("#crId").val() == ""){
+	alert("교과목 코드를 작성해주세요");
+	$("#crId").focus();
+	return;
+}else if($("#crName").val() == ""){
+	alert("과목명을 작성해주세요");
+	$("#crName").focus();
+	return;
+}else{
+	var form = document.getElementById('courseAddForm');
+	form.action = "courseAdd.do";
+	form.method = "POST"
+	form.submit();
+}	
+
+
+}

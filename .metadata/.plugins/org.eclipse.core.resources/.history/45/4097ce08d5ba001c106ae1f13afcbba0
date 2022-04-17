@@ -1,0 +1,56 @@
+package dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import vo.CourseVO;
+import vo.LecturerVO;
+
+public class CourseDAO {
+	
+	@Autowired
+	SqlSession sqlSession;
+	
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+	
+	public int total() {
+		int total = sqlSession.selectOne("course.total");
+		return total;
+	}
+	
+	public int CourseAdd(CourseVO vo) {
+		int result = sqlSession.insert("course.CourseAdd",vo);
+		return result;
+	}
+	
+	public int crIdCheck(String crId) {
+		int crIdCheck = sqlSession.selectOne("course.crIdCheck", crId);
+		return crIdCheck;
+	}
+	
+	
+	public List<CourseVO> courseList(Map<String, Object> map){
+		List<CourseVO> list = sqlSession.selectList("course.courseList",map);
+		return list;
+	}
+	
+	public int deleteCourse(String crId) {
+		int result = sqlSession.delete("course.deleteCourse",crId);
+		return result;
+	}
+	
+	
+	
+	
+	//lecturer
+	public List<LecturerVO> lecturerList(){
+		List<LecturerVO> lcList = sqlSession.selectList("lecturer.lecturerList");
+		return lcList;
+	}
+	
+}

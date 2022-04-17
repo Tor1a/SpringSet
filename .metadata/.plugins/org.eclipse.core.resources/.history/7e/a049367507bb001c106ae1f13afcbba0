@@ -1,0 +1,18 @@
+var crId = document.getElementById('crId');
+
+function deleteBtn(crId){
+	if(confirm("삭제 하시겠습니까?")){
+		alert("취소하셨습니다");
+		return flase;
+	}else{
+		var form = document.getElementById('delCourse');
+		form.action = "deleteCourseForm.do?crId="+crId;
+		form.method = "GET";
+		form.submit;
+	}
+}
+
+function updateBtn(){
+	location.href = "updateCourseForm.do?crId="+crId;
+}
+

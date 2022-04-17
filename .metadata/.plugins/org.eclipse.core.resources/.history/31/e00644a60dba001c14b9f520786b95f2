@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="../include/header.jsp" %>
+
+<script src="${pageContext.request.contextPath}/resources/js/post/commentAdd.js"></script>
+	<table>
+		<thead>
+			<th><h2>게시물 조회</h2></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>제목: ${vo.subject}</td>
+			</tr>
+			<tr>
+				<td>작성자: ${vo.writer}</td> 
+				<td>작성일: ${vo.date}</td>
+			</tr>
+			<tr>
+				<td>${vo.content}</td>
+			</tr>
+		</tbody>
+			<th>댓글 조회</th>
+			<c:forEach var="list" items="${list}">
+			<tr>
+				<td>
+					${list.writer} / ${list.content} / ${list.date} / <a href="CommentDel.do?idx=${list.bidx}&bidx=${vo.idx}">삭제</a>
+				</td>
+			</tr>
+			</c:forEach>
+		<form id="commentAddForm">
+		<table>
+		<input type="text" name="bidx" value="${vo.idx}" >
+			<tr>
+				<td>작성자</td>
+				 <td><input type="text" id ="cmWriter" name="writer"></td>
+				 <td><input type="text" id ="cmContent" name="content" placeholder="내용을 입력해주세요"></td>
+				 <td><input type="button" value="작성" onclick="addCheck()"></td>
+			</tr>
+				
+		</table>	
+	
+		</form>
+		<tr>
+		<button><a href="/controller">목록</a></button>
+		<button><a href="updatForm.do?idx=${vo.idx}">수정</a></button>
+		<button><a href="delete.do?idx=${vo.idx}">삭제</a></button>
+		</tr>
+	</table>
+		
+	
+<%@ include file="../include/footer.jsp" %>

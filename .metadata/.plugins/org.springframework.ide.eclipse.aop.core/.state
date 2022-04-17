@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="practice01"/>
+<aop-project name="practice02"/>
+<aop-project name="practice"/>
+</aop-reference-model>

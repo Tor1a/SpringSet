@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="course">
+	
+	<select id="courseList" parameterType="CourseVO">
+		SELECT a.*,(b.name) AS lecturer FROM course_tbl a
+		JOIN lecturer_tbl b ON a.lecturer = b.idx
+	</select>
+	
+	<insert id="CourseAdd" parameterType="CourseVO">
+		INSERT INTO course_tbl (crId,crName,credit,lecturer,crWeek,start_hour,end_end)
+		VALUES (#{crId}, #{crName}, #{credit}, #{lecturer},#{crWeek},#{start_hour}, #{end_end})
+	</insert>
+	
+	<select id="crIdCheck" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM course_tbl WHERE crId = #{crId}
+	</select>
+	
+	<select id = "total" resultType="Integer">
+		SELECT COUNT(*) FROM course_tbl	
+	</select>
+	
+</mapper>

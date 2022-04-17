@@ -1,0 +1,18 @@
+function addCheck(){
+	if($("#cmWriter").val() == ""){
+		alert("작성자를 입력해주세요");
+		$("#cmWriter").focus();
+		return;
+	}else if($("#cmContent").val() == ""){
+		alert("내용을 입력해주세요");
+		$("#cmContent").focus();
+		return;
+	}else{
+	var form = document.getElementById('courseAddForm');
+	form.action = "courseAdd.do";
+	form.method = "POST"
+	form.submit();
+}	
+
+
+}

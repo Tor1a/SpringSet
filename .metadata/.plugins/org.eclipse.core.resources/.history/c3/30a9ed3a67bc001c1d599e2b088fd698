@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+.joTb {border: 1px solid balck;}
+
+tr,td {border: 1px solid black;}

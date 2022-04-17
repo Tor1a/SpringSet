@@ -1,0 +1,9 @@
+function deletebtn(){
+	if(!confirm("정말 삭제하시겠습니까?")){
+		alert("취소를 누르셨습니다");
+		return
+	}else{
+		alert("삭제됐습니다")
+	}
+	
+}

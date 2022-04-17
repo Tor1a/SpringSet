@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	
+	<insert id="insertMember" parameterType="MemberVO">
+	 INSERT INTO member (custname, phone, address, joindate, grade, city) 
+	 VALUES(#{custname},#{phone}, #{address}, #{joindate}, #{grade}, #{city})
+	</insert>
+	<select id="selectOne" resultType="Integer">
+		SELECT MAX(custno) FROM member
+	</select>
+	
+	<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM member
+	</select>
+	
+	<select id="memberList" resultType="memberVO">
+		select * from member
+	</select>
+	
+	<update id="memberUpdate" parameterType="memberVO">
+		UPDATE member SET custname = #{custname}, phone=#{phone},address=#{address},grade=#{grade},city=#{city}
+		WHERE custno = #{custno} 
+	</update>
+	
+	<select id="SelectCustno" parameterType="Integer" resultType="memberVO">
+		SELECT * FROM member WHERE custno = #{custno}
+	</select>
+	
+	<select id="comparisonMoney" resultType="memberVO">
+		SELECT a.custno, a.custname, a.grade, SUM(b.price) AS money FROM member a 
+		JOIN money b ON a.custno = b.custno
+		GROUP BY a.custno, a.custname, a.grade
+		ORDER BY money DESC
+	</select>
+	
+</mapper>
